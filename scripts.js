@@ -8,10 +8,34 @@ function makeContainers(size) {
         main.appendChild(div);
         for(let col=0; col<size; col++) {
             const div = document.createElement('div');
-            let currRow = document.querySelector('.row' + row);
+            let currRow = document.querySelector(`.row${row}`);
+            div.addEventListener('mouseenter', () => {
+                div.style.backgroundColor = 'black';
+            });
             currRow.appendChild(div);
         }
     }
+}
+
+function clear() {
+    
+    const subContainers = document.querySelectorAll('.row');
+    const main = document.getElementById('main-container');
+
+    subContainers.forEach(subContainer => {
+        main.removeChild(subContainer);
+    });
+
+    setTimeout(() => {
+        makeContainers(getSize());
+    }, 1000);
+    
+}
+
+function getSize() {
+    let size = 0;
+    size = prompt("Enter a number between 1-100 for the size.");
+    return size;
 }
 
 window.addEventListener('load', () => {
