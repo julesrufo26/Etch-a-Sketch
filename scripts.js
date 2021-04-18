@@ -35,7 +35,19 @@ function clear() {
 function getSize() {
     let size = 0;
     size = prompt("Enter a number between 1-100 for the size.");
-    return size;
+
+    if(isNaN(size) || size.trim() == ""){
+        alert("Input should be a number and NOT empty!");
+        clear();
+    }
+
+    if(size < 0 || size > 100) {
+        alert("Number should be between 1 and 100 only!");
+        clear();
+    }
+    else{
+        return size;
+    }
 }
 
 window.addEventListener('load', () => {
