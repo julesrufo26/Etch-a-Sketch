@@ -28,7 +28,7 @@ function clear() {
 
     setTimeout(() => {
         makeContainers(getSize());
-    }, 1000);
+    }, 500);
     
 }
 
@@ -39,5 +39,12 @@ function getSize() {
 }
 
 window.addEventListener('load', () => {
+    const clearBtn = document.getElementById('clear');
+
     makeContainers(16);
+
+    clearBtn.addEventListener('click', () => {
+        clear();
+    });
+
 });
